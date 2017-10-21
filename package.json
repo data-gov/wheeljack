@@ -1,24 +1,47 @@
 {
-  "name": "Wheeljack",
+  "name": "wheeljack",
   "version": "0.1.0",
   "author": "DataGov",
-  "devDependencies": {
-    "eslint": "^4.9.0",
-    "supertest": "^3.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/data-gov/wheeljack.git"
   },
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "DEBUG=wheeljack:* node ./dist/server.js",
+    "dev": "DEBUG=wheeljack:* nodemon --inspect  ./src/server.js --exec babel-node",
+    "build": "babel src --out-dir dist",
+    "lint:check": "eslint ./src/ ./tests/",
+    "lint:fix": "eslint --fix ./src/ ./tests/",
+    "commitizen": "git cz",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:update-coverage": "jest --coverage --forceExit",
+    "precommit": "npm run lint:check",
+    "prepush": "npm test"
+  },
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-node6": "^11.0.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
     "dotenv": "^4.0.0",
     "node-wit": "^4.3.0",
     "telegram-js": "^0.2.4"
   },
-  "scripts": {
-    "test": "mocha --compilers js:babel-core/register tests.js",
-    "start": "babel-node server.js"
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "supertest": "^3.0.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-flowtype": "^2.35.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "jest": "^21.1.0",
+    "nodemon": "^1.12.1"
   }
 }
