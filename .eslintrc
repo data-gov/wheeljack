@@ -10,5 +10,5 @@
     "semi": [2, "never"]
   },
   "extends": "standard",
-  "plugins": [ "flowtype" ]
+  "plugins": [ "flowtype", "graphql" ]
 }
