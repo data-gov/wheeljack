@@ -15,7 +15,6 @@
     "commitizen": "git cz",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:update-coverage": "jest --coverage --forceExit",
     "precommit": "npm run lint:check",
     "prepush": "npm test"
   },
@@ -29,8 +28,7 @@
     "dotenv": "^4.0.0",
     "graphql-tag": "^2.5.0",
     "node-fetch": "^1.7.3",
-    "node-wit": "^4.3.0",
-    "telegram-js": "^0.2.4"
+    "node-wit": "^4.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",

@@ -3426,10 +3426,6 @@ tar@^2.2.1:
     fstream "^1.0.2"
     inherits "2"
 
-telegram-js@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/telegram-js/-/telegram-js-0.2.4.tgz#83cd1bea0cfed7ab5b4fb1a50c2f3acda7247431"
-
 test-exclude@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/test-exclude/-/test-exclude-4.1.1.tgz#4d84964b0966b0087ecc334a2ce002d3d9341e26"
