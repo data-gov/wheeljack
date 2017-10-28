@@ -1,6 +1,7 @@
-
 import { createGraphqlClient } from './config/apollo'
 import { mostVotedCongressmanByState } from './graphql/queries/congressman'
+import DotEnv from 'dotenv'
+DotEnv.config()
 
 createGraphqlClient()
   .then(client => {

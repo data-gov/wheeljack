@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export const mostVotedCongressmanByState = gql`
-{
-  mostVotedCongressmanByState(state: "RS") {
+query($state: String!) {
+  mostVotedCongressmanByState(state: $state) {
     id,
     name
   }

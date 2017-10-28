@@ -1,5 +1,5 @@
 const WIT_AI_TOKEN = ''
-const {Wit} = require('node-wit')
+const { Wit } = require('node-wit')
 
 const plnParser = new Wit({
   accessToken: WIT_AI_TOKEN
