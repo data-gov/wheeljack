@@ -1,4 +1,4 @@
-import { createGraphqlClient } from './config/apollo'
+import { createGraphqlClient } from './graphql/client'
 import { mostVotedCongressmanByState } from './graphql/queries/congressman'
 import plnParser from './wit'
 
