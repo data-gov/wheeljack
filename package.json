@@ -8,8 +8,7 @@
   },
   "scripts": {
     "prestart": "npm run build",
-    "start": "DEBUG=wheeljack:* node ./dist/server.js",
-    "dev": "DEBUG=wheeljack:* nodemon --inspect  ./src/server.js --exec babel-node",
+    "start": "node -r dotenv/config ./dist/app.js",
     "build": "babel src --out-dir dist",
     "lint:check": "eslint ./src/ ./tests/",
     "lint:fix": "eslint --fix ./src/ ./tests/",
@@ -45,8 +44,6 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "jest": "^21.1.0",
-    "nodemon": "^1.12.1",
-    "supertest": "^3.0.0"
+    "jest": "^21.1.0"
   }
 }

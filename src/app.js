@@ -1,7 +1,6 @@
 import { createGraphqlClient } from './config/apollo'
 import { mostVotedCongressmanByState } from './graphql/queries/congressman'
-import DotEnv from 'dotenv'
-DotEnv.config()
+import plnParser from './wit'
 
 createGraphqlClient()
   .then(client => {
@@ -13,3 +12,9 @@ createGraphqlClient()
       .catch(error => console.error(error))
   })
   .catch(error => console.error(error))
+
+plnParser.message('Qual candidato foi o mais votado no RS', {})
+  .then((data) => {
+    console.log('Yay, got Wit.ai response: \n' + JSON.stringify(data))
+  })
+  .catch(console.error)

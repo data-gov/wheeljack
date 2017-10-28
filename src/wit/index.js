@@ -1,8 +1,8 @@
-const WIT_AI_TOKEN = ''
-const { Wit } = require('node-wit')
+const { Wit, log } = require('node-wit')
 
-const plnParser = new Wit({
-  accessToken: WIT_AI_TOKEN
+const client = new Wit({
+  accessToken: process.env.WIT_SERVER_TOKEN,
+  logger: new log.Logger(log.DEBUG)
 })
 
-module.exports = plnParser
+export default client

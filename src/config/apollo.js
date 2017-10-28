@@ -4,7 +4,7 @@ import { HttpLink, InMemoryCache } from 'apollo-client-preset'
 
 export const createGraphqlClient = async () => {
   return new ApolloClient({
-    link: new HttpLink({ uri: 'https://optimus-prime-graphql.herokuapp.com/graphql', fetch }),
+    link: new HttpLink({ uri: process.env.GRAPHQL_API_URL, fetch }),
     cache: new InMemoryCache().restore({})
   })
 }
