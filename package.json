@@ -13,7 +13,9 @@
     "lint:check": "eslint ./src/ ./tests/",
     "lint:fix": "eslint --fix ./src/ ./tests/",
     "commitizen": "git cz",
+    "hubot": "./bin/hubot.sh",
     "test": "jest",
+    "heroku:local": "heroku local web",
     "test:watch": "jest --watch",
     "precommit": "npm run lint:check",
     "prepush": "npm test"
@@ -28,6 +30,7 @@
     "dotenv": "^4.0.0",
     "graphql-tag": "^2.5.0",
     "hubot": "^2.19.0",
+    "hubot-heroku-keepalive": "1.0.3",
     "node-fetch": "^1.7.3",
     "node-wit": "^4.3.0"
   },
@@ -44,5 +47,8 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "jest": "^21.1.0"
+  },
+  "engines": {
+    "node": "8.3.0"
   }
 }
