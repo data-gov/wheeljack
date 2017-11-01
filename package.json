@@ -7,8 +7,7 @@
     "url": "https://github.com/data-gov/wheeljack.git"
   },
   "scripts": {
-    "prestart": "npm run build",
-    "start": "node -r dotenv/config ./dist/app.js",
+    "start": "./bin/hubot.sh",
     "build": "babel src --out-dir dist",
     "lint:check": "eslint ./src/ ./tests/",
     "lint:fix": "eslint --fix ./src/ ./tests/",
