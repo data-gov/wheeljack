@@ -7,15 +7,14 @@
     "url": "https://github.com/data-gov/wheeljack.git"
   },
   "scripts": {
-    "start": "./bin/hubot.sh",
-    "build": "babel src --out-dir dist",
-    "lint:check": "eslint ./src/ ./tests/",
-    "lint:fix": "eslint --fix ./src/ ./tests/",
+    "start": "npm run hubot",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint:check": "eslint ./parser/ ./tests/",
+    "lint:fix": "npm run lint:check -- --fix",
     "commitizen": "git cz",
     "hubot": "./bin/hubot.sh",
-    "test": "jest",
     "heroku:local": "heroku local web",
-    "test:watch": "jest --watch",
     "precommit": "npm run lint:check",
     "prepush": "npm test"
   },
