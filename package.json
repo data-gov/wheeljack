@@ -22,10 +22,6 @@
   "dependencies": {
     "apollo-client": "^2.0.1",
     "apollo-client-preset": "^1.0.1",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.0",
     "dotenv": "^4.0.0",
     "graphql-tag": "^2.5.0",
     "hubot": "^2.19.0",
@@ -34,8 +30,6 @@
     "node-wit": "^4.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "babel-jest": "^21.2.0",
     "eslint": "^4.9.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-flowtype": "^2.35.1",
@@ -51,6 +45,6 @@
     "fsevents": "1.1.2"
   },
   "engines": {
-    "node": "8.3.0"
+    "node": "8.9.0"
   }
 }

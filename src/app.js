@@ -1,6 +1,6 @@
-import { createGraphqlClient } from './graphql/client'
-import { mostVotedCongressmanByState } from './graphql/queries/congressman'
-import plnParser from './wit'
+const { createGraphqlClient } = require('./graphql/client')
+const { mostVotedCongressmanByState } = require('./graphql/queries/congressman')
+const plnParser = require('./wit')
 
 createGraphqlClient()
   .then(client => {
