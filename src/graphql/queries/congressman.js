@@ -1,6 +1,6 @@
-import gql from 'graphql-tag'
+const gql = require('graphql-tag')
 
-export const mostVotedCongressmanByState = gql`
+exports.mostVotedCongressmanByState = gql`
 query($state: String!) {
   mostVotedCongressmanByState(state: $state) {
     id,
