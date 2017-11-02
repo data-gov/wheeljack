@@ -5,4 +5,4 @@ const client = new Wit({
   logger: new log.Logger(log.DEBUG)
 })
 
-export default client
+module.exports = client
