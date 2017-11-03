@@ -1,1 +1,1 @@
-eval "$(cat .env | sed 's/^/export /g' | sed 's/=/=\"/g' | sed 's/$/"/g')"
+cat .env | sed 's/^/export /g' | sed 's/=/=\"/g' | sed 's/$/"/g'

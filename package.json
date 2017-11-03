@@ -13,7 +13,7 @@
     "lint:check": "eslint ./parser/ ./tests/",
     "lint:fix": "npm run lint:check -- --fix",
     "commitizen": "git cz",
-    "hubot": "source dotenv.sh && hubot --name 'wheeljack'",
+    "hubot": "eval $(./dotenv.sh) && hubot --name 'wheeljack'",
     "hubot:gitter":
       "PORT=8081 ROOM='data-gov/Lobby' npm run hubot -- --adapter gitter",
     "hubot:fb": "npm run hubot -- --adapter fb",
