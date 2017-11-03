@@ -1,0 +1,46 @@
+{
+  "name": "wheeljack",
+  "scripts": {
+  },
+  "env": {
+    "GRAPHQL_API_URL": {
+      "required": true
+    },
+    "HUBOT_HEROKU_KEEPALIVE_INTERVAL": {
+      "required": true
+    },
+    "HUBOT_HEROKU_KEEPALIVE_URL": {
+      "required": true
+    },
+    "HUBOT_HEROKU_SLEEP_TIME": {
+      "required": true
+    },
+    "HUBOT_HEROKU_WAKEUP_TIME": {
+      "required": true
+    },
+    "NEW_RELIC_LICENSE_KEY": {
+      "required": true
+    },
+    "NEW_RELIC_LOG": {
+      "required": true
+    },
+    "REDISCLOUD_URL": {
+      "required": true
+    },
+    "WIT_SERVER_TOKEN": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "newrelic",
+    "rediscloud",
+    "scheduler"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
