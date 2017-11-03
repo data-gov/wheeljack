@@ -21,9 +21,9 @@
   "dependencies": {
     "apollo-client": "^2.0.1",
     "apollo-client-preset": "^1.0.1",
-    "dotenv": "^4.0.0",
     "graphql-tag": "^2.5.0",
     "hubot": "^2.19.0",
+    "hubot-gitter": "^1.0.0",
     "hubot-heroku-keepalive": "1.0.3",
     "node-fetch": "^1.7.3",
     "node-wit": "^4.3.0"

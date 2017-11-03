@@ -14,5 +14,7 @@ Voce precisará criar um arquivo `.env` após clonar o repositório, na pasta ra
 ```
 WIT_SERVER_TOKEN='<ACCESS_TOKEN>'
 GRAPHQL_API_URL='https://optimus-prime-graphql.herokuapp.com/graphql'
+TOKEN='<GITTER TOKEN>'
+HUBOT_LOG_LEVEL=debug
 ```
 As variaveis de ambiente sāo injetadas durante o `npm start`
