@@ -7,13 +7,16 @@
     "url": "https://github.com/data-gov/wheeljack.git"
   },
   "scripts": {
-    "start": "npm run hubot",
+    "start": "concurrently 'npm run hubot:fb' 'npm run hubot:gitter'",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:check": "eslint ./parser/ ./tests/",
     "lint:fix": "npm run lint:check -- --fix",
     "commitizen": "git cz",
-    "hubot": "./bin/hubot.sh",
+    "hubot": "source dotenv.sh && hubot --name 'wheeljack'",
+    "hubot:gitter":
+      "PORT=8081 ROOM='data-gov/Lobby' npm run hubot -- --adapter gitter",
+    "hubot:fb": "npm run hubot -- --adapter fb",
     "heroku:local": "heroku local web",
     "precommit": "npm run lint:check",
     "prepush": "npm test"
@@ -21,9 +24,11 @@
   "dependencies": {
     "apollo-client": "^2.0.1",
     "apollo-client-preset": "^1.0.1",
-    "dotenv": "^4.0.0",
+    "concurrently": "^3.5.0",
     "graphql-tag": "^2.5.0",
     "hubot": "^2.19.0",
+    "hubot-fb": "^5.0.0",
+    "hubot-gitter": "^1.0.0",
     "hubot-heroku-keepalive": "1.0.3",
     "node-fetch": "^1.7.3",
     "node-wit": "^4.3.0"
