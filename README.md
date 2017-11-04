@@ -1,5 +1,7 @@
 # WheelJack
 
+[![Join the chat at https://gitter.im/data-gov/wheeljack](https://badges.gitter.im/data-gov/wheeljack.svg)](https://gitter.im/data-gov/wheeljack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The objective of this project is to create a conversational agent.
 
 
