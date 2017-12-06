@@ -22,8 +22,10 @@
 // Author:
 //   data-gov
 
-var parser = require('../')
-var ANYTHING = /.*/i
+const parser = require('../')
+const ANYTHING = /.*/i
+const { createGraphqlClient } = require('../graphql')
+const { findCandidatesByRoleAndYear } = require('../graphql/queries/congressman')
 
 function loggerMiddleware (robot) {
   return (context, next, done) => {
@@ -35,7 +37,20 @@ function loggerMiddleware (robot) {
 async function parseMessage (res) {
   const userMessage = res.match.input
   const parsedMessage = await parser(userMessage)
-  res.send(JSON.stringify(parsedMessage))
+
+  const post = parsedMessage.entities.post[0].value
+  const year = new Date(parsedMessage.entities.datetime[0].value).getFullYear()
+
+  const client = await createGraphqlClient()
+  const result = await client.query({
+    query: findCandidatesByRoleAndYear,
+    variables: {
+      role: post.toUpperCase(),
+      year: year
+    }
+  })
+
+  res.send(JSON.stringify(result.data.candidatesByRoleAndYear))
 }
 
 module.exports = robot => {
