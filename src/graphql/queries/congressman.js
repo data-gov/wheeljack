@@ -8,3 +8,9 @@ query($state: String!) {
   }
 }
 `
+
+exports.findCandidatesByRoleAndYear = gql`
+query($role: String!, $year: Int! ) {
+  candidatesByRoleAndYear(role: $role, year: $year)
+}
+`
