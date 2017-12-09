@@ -1,6 +1,6 @@
 const plnParser = require('./wit')
 const { greetings, random, invalidQuestion } = require('./messages')
-const { answerWithCandidatesByRoleAndYear } = require('./answers')
+const { answerWithCandidatesByRoleAndYear, answerWithCandidatesVotesByYearAndState } = require('./answers')
 
 exports.answer = async (message) => {
   const parsedMessage = await plnParser.message(message, {})
@@ -9,6 +9,11 @@ exports.answer = async (message) => {
   if (entities.hasOwnProperty('candidatesByRoleAndYear')) {
     return answerWithCandidatesByRoleAndYear(entities)
   }
+
+  if (entities.hasOwnProperty('findCandidateVotesInAYearByNameAndState')) {
+    return answerWithCandidatesVotesByYearAndState(entities)
+  }
+
   if (entities.hasOwnProperty('greeting')) {
     return random(greetings)
   }
