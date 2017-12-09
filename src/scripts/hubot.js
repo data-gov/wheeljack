@@ -1,6 +1,6 @@
-const parser = require('../')
+const { errorMessages, random } = require('../messages')
+const { answer } = require('../')
 const ANYTHING = /.*/i
-const { answer } = require('../message')
 
 function loggerMiddleware (robot) {
   return (context, next, _) => {
@@ -11,9 +11,13 @@ function loggerMiddleware (robot) {
 
 async function parseMessage (res) {
   const userMessage = res.match.input
-  const parsedMessage = await parser(userMessage)
-  const message = await answer(parsedMessage)
-  res.send(message)
+  try {
+    const response = await answer(userMessage)
+    res.send(response)
+  } catch (error) {
+    console.error(JSON.stringify(error))
+    res.send(random(errorMessages))
+  }
 }
 
 module.exports = robot => {

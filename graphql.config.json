@@ -1,0 +1,8 @@
+{
+  "endpoints" : [
+    {
+      "name": "Optimus-Prime API",
+      "url": "https://optimus-prime-graphql.herokuapp.com/graphql"
+    }
+  ]
+}

@@ -1,19 +1,7 @@
 const { createGraphqlClient } = require('../graphql')
 const { findCandidatesByRoleAndYear } = require('../graphql/queries/congressman')
 
-exports.answer = async (parsedMessage) => {
-  const entities = parsedMessage.entities
-  if (entities.hasOwnProperty('candidatesByRoleAndYear')) {
-    return answerWithCandidatesByRoleAndYear(entities)
-  }
-  if (entities.hasOwnProperty('greeting')) {
-    return 'Olá, em que posso ajudar?'
-  }
-
-  return 'Não entendi a pergunta'
-}
-
-const answerWithCandidatesByRoleAndYear = async (entities) => {
+exports.answerWithCandidatesByRoleAndYear = async (entities) => {
   const post = entities.post[0].value
   const year = new Date(entities.datetime[0].value).getFullYear()
 
