@@ -43,7 +43,7 @@ async function parseMessage (res) {
     const response = await answer(userMessage)
     res.send(response)
   } catch (error) {
-    console.error(JSON.stringify(error))
+    console.error(error)
     res.send(random(errorMessages))
   }
 }

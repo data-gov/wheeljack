@@ -21,7 +21,7 @@ exports.answerWithCandidatesByRoleAndYear = async (entities) => {
 
 exports.answerWithCandidatesVotesByYearAndState = async (entities) => {
   const year = new Date(entities.datetime[0].value).getFullYear()
-  const candidate = entities.candidateName[0].value
+  const candidate = entities.president[0].value
   const state = entities.brState[0].value
 
   const client = await createGraphqlClient()
