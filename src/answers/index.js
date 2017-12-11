@@ -34,7 +34,7 @@ exports.answerWithCandidatesVotesByYearAndState = async (entities) => {
     }
   })
 
-  const result = queryResult.data.candidateVotesByState
+  const result = queryResult.data.findCandidateVotesInAYearByNameAndState
 
   return result
     ? `Em ${state}, ${candidate} teve ${result.votes.first} no primeiro turno e ${result.votes.second} no segundo turno`
