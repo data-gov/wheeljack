@@ -1,0 +1,37 @@
+{
+  "_text": "Quantos votos Levir Fidelix teve em SP em 2014?",
+  "entities": {
+    "findCandidateVotesInAYearByNameAndState": [
+      {
+        "confidence": 1,
+        "value": "Quantos votos",
+        "type": "value"
+      }
+    ],
+    "president": [
+      {
+        "metadata": "JOSÉ_LEVY_FIDELIX_DA_CRUZ",
+        "confidence": 1,
+        "value": "JOSÉ LEVY FIDELIX DA CRUZ",
+        "type": "value"
+      }
+    ],
+    "brState": [
+      {
+        "confidence": 1,
+        "value": "SP",
+        "type": "value"
+      }
+    ],
+    "datetime": [
+      {
+        "confidence": 1,
+        "values": [],
+        "value": "2014-01-01T00:00:00.000-02:00",
+        "grain": "year",
+        "type": "value"
+      }
+    ]
+  },
+  "msg_id": "05PIYoVG1637RPzCV"
+}

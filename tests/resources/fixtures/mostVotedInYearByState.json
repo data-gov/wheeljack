@@ -1,0 +1,29 @@
+{
+  "_text": "quem foi o candidato mais votado no Rio grande do sul em 2006?",
+  "entities": {
+    "mostVotedInYearByState": [
+      {
+        "confidence": 1,
+        "value": "quem foi o candidato mais votado",
+        "type": "value"
+      }
+    ],
+    "brState": [
+      {
+        "confidence": 1,
+        "value": "RS",
+        "type": "value"
+      }
+    ],
+    "datetime": [
+      {
+        "confidence": 1,
+        "values": [],
+        "value": "2006-01-01T00:00:00.000-02:00",
+        "grain": "year",
+        "type": "value"
+      }
+    ]
+  },
+  "msg_id": "0KSBTlKPQhVFOCvId"
+}

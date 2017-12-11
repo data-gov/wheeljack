@@ -1,42 +1,29 @@
-const { createGraphqlClient } = require('../graphql')
-const { findCandidatesByRoleAndYear, findCandidateVotesInAYearByNameAndState } = require('../graphql/queries/congressman')
+const { query } = require('../graphql/client')
+const { findCandidatesByRoleAndYear, findCandidateVotesInAYearByNameAndState } = require('../graphql/queries/election')
 
-exports.answerWithCandidatesByRoleAndYear = async (entities) => {
-  const post = entities.post[0].value
-  const year = new Date(entities.datetime[0].value).getFullYear()
+exports.answerWithCandidatesByRoleAndYear = async (year, role) => {
+  const queryResult = await query(findCandidatesByRoleAndYear, {role, year})
+  const result = queryResult.data.candidatesByRoleAndYear
 
-  const client = await createGraphqlClient()
-  const queryResult = await client.query({
-    query: findCandidatesByRoleAndYear,
-    variables: {
-      role: post.toUpperCase(),
-      year: year
-    }
-  })
+  const failure = `Não houveram eleições para o cargo de ${role} em ${year}`
+  const success = `As pessoas que se candidataram ao cargo de ${role} em ${year} foram: \r\n${result.join('\r\n')}`
 
-  return queryResult.data.candidatesByRoleAndYear
-    ? `As pessoas que se candidataram ao cargo de ${post} em ${year} foram: \r\n${queryResult.data.candidatesByRoleAndYear.join('\r\n')}`
-    : `Não houveram eleições para o cargo de ${post} em ${year}`
+  return result ? success : failure
 }
 
-exports.answerWithCandidatesVotesByYearAndState = async (entities) => {
-  const year = new Date(entities.datetime[0].value).getFullYear()
-  const candidate = entities.president[0].value
-  const state = entities.brState[0].value
-
-  const client = await createGraphqlClient()
-  const queryResult = await client.query({
-    query: findCandidateVotesInAYearByNameAndState,
-    variables: {
-      name: candidate.toUpperCase(),
-      state: state.toUpperCase(),
-      year: year
-    }
-  })
-
+exports.answerWithCandidatesVotesByYearAndState = async (year, state, name) => {
+  const queryResult = await query(findCandidateVotesInAYearByNameAndState, { name, state, year })
   const result = queryResult.data.findCandidateVotesInAYearByNameAndState
 
-  return result
-    ? `Em ${state}, ${candidate} teve ${result.votes.first} no primeiro turno e ${result.votes.second} no segundo turno`
-    : `${candidate} não participou das eleições de ${year}`
+  const success = `Em ${state}, ${name} teve ${result.votes.first} no primeiro turno e ${result.votes.second} no segundo turno`
+  const failure = `${name} não participou das eleições de ${year}`
+  return result ? success : failure
+}
+
+exports.topVotingState = async (entities) => {
+  return 'Buuuh'
+}
+
+exports.mostVotedInYearByState = async (entities) => {
+  return 'Blaah'
 }

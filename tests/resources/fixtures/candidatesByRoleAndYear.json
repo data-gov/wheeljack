@@ -1,0 +1,30 @@
+{
+  "_text": "quais foram os candidatos a presidencia em 2014",
+  "entities": {
+    "candidatesByRoleAndYear": [
+      {
+        "suggested": true,
+        "confidence": 0.68144374826128,
+        "value": "quais foram os candidatos",
+        "type": "value"
+      }
+    ],
+    "post": [
+      {
+        "confidence": 1,
+        "value": "presidente",
+        "type": "value"
+      }
+    ],
+    "datetime": [
+      {
+        "confidence": 0.96904,
+        "values": [],
+        "value": "2014-01-01T00:00:00.000-02:00",
+        "grain": "year",
+        "type": "value"
+      }
+    ]
+  },
+  "msg_id": "0DXe6W30r0fooFejl"
+}
