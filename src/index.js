@@ -36,7 +36,11 @@ exports.answer = async (message) => {
   }
 
   if (entities.hasOwnProperty('topVotingState')) {
-    return topVotingState(entities)
+    const { datetime, president } = entities
+    return topVotingState(
+      extractYear(datetime),
+      extractCandidateName(president)
+    )
   }
 
   if (entities.hasOwnProperty('mostVotedInYearByState')) {

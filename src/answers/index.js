@@ -1,5 +1,5 @@
 const { query } = require('../graphql/client')
-const { findCandidatesByRoleAndYear, findCandidateVotesInAYearByNameAndState } = require('../graphql/queries/election')
+const { findCandidatesByRoleAndYear, findCandidateVotesInAYearByNameAndState, topVotingState } = require('../graphql/queries/election')
 
 exports.answerWithCandidatesByRoleAndYear = async (year, role) => {
   const queryResult = await query(findCandidatesByRoleAndYear, {role, year})
@@ -20,8 +20,15 @@ exports.answerWithCandidatesVotesByYearAndState = async (year, state, name) => {
   return result ? success : failure
 }
 
-exports.topVotingState = async (entities) => {
-  return 'Buuuh'
+exports.topVotingState = async (year, name) => {
+  const queryResult = await query(topVotingState, { name, year })
+  const result = queryResult.data.topVotingState
+  const { state, votes } = result
+
+  const failure = `Eh provavel que ${name} nao se candidatou as eleicoes de ${year}`
+  const success = `O estado que mais votou em ${name} no ano de ${year} foi ${state} com um total de ${votes.total} votos.`
+
+  return result ? success : failure
 }
 
 exports.mostVotedInYearByState = async (entities) => {
