@@ -41,5 +41,5 @@ exports.mostVotedInYearByState = async (year, state) => {
 exports.electionWinner = async (year) => {
   const queryResult = await query(findElectionWinner, { year })
   const winner = queryResult.data.electionWinner
-  return electionWinnerMessages(winner)
+  return electionWinnerMessages(winner, year)
 }

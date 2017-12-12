@@ -1,4 +1,4 @@
-const { random, errorMessages } = require('./static')
+const { random } = require('./static')
 
 const smartAnswerExample = (state, name, votes, year) => {
   const onlyFirstShiftMessages = [
@@ -48,8 +48,8 @@ exports.mostVotedInYearByStateMessages = (result, year, state) => {
   return result ? success : failure
 }
 
-exports.electionWinnerMessages = (winner) => {
-  const failure = random(errorMessages)
+exports.electionWinnerMessages = (winner, year) => {
+  const failure = `Nao teve eleicoes de presidente em ${year}`
   const success = winner
   return winner ? success : failure
 }
