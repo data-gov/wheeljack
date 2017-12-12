@@ -1,12 +1,11 @@
-
 const plnParser = require('./wit')
-const { greetings, random, invalidQuestion, farewells } = require('./messages')
+const { greetings, random, invalidQuestion, farewells } = require('./answers/static')
 const {
   answerWithCandidatesVotesByYearAndState,
   answerWithCandidatesByRoleAndYear,
   mostVotedInYearByState,
   topVotingState
-} = require('./answers')
+} = require('./services/election')
 
 const extractPost = post => post[0].value.toUpperCase()
 const extractState = brState => brState[0].value.toUpperCase()

@@ -26,7 +26,7 @@
 // Author:
 //   data-gov
 
-const { errorMessages, random } = require('../messages')
+const { errorMessages, random } = require('../answers/static')
 const { answer } = require('../')
 const ANYTHING = /.*/i
 
