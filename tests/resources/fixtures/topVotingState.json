@@ -1,0 +1,30 @@
+{
+  "_text": "qual estado votou mais em fidelix no ano de 1964",
+  "entities": {
+    "topVotingState": [
+      {
+        "confidence": 1,
+        "value": "qual estado votou mais",
+        "type": "value"
+      }
+    ],
+    "president": [
+      {
+        "metadata": "JOSÉ_LEVY_FIDELIX_DA_CRUZ",
+        "confidence": 1,
+        "value": "JOSÉ LEVY FIDELIX DA CRUZ",
+        "type": "value"
+      }
+    ],
+    "datetime": [
+      {
+        "confidence": 1,
+        "values": [],
+        "value": "1964-01-01T00:00:00.000-02:00",
+        "grain": "year",
+        "type": "value"
+      }
+    ]
+  },
+  "msg_id": "0lgfvsGYQD8GFCByL"
+}
