@@ -4,6 +4,7 @@ const {
   answerWithCandidatesVotesByYearAndState,
   answerWithCandidatesByRoleAndYear,
   mostVotedInYearByState,
+  electionWinner,
   topVotingState
 } = require('./services/election')
 
@@ -47,6 +48,13 @@ exports.answer = async (message) => {
     return mostVotedInYearByState(
       extractYear(datetime),
       extractState(brState)
+    )
+  }
+
+  if (entities.hasOwnProperty('findElectionWinner')) {
+    const { datetime } = entities
+    return electionWinner(
+      extractYear(datetime)
     )
   }
 

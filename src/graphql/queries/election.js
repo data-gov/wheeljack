@@ -47,3 +47,4 @@ exports.findTopVotingState = gql`
     }
   }
 `
+exports.findElectionWinner = gql`query ($year: Int!) { electionWinner(year: $year) }`
