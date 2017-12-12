@@ -18,7 +18,7 @@ exports.findCandidateVotesInAYearByNameAndState = gql`
   }
 `
 
-exports.mostVotedInYearByState = gql`
+exports.findMostVotedInYearByState = gql`
   query ($state: String!, $year: Int!, $shift: Int) {
     mostVotedInYearByState (state: $state, year: $year, shift: $shift){
       name
@@ -33,7 +33,7 @@ exports.mostVotedInYearByState = gql`
   }
 `
 
-exports.topVotingState = gql`
+exports.findTopVotingState = gql`
   query ($name: String!, $year: Int!, $shift: Int) {
     topVotingState(name: $name, year: $year, shift: $shift){
       name
