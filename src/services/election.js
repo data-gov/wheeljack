@@ -2,11 +2,13 @@ const { query } = require('../graphql/client')
 const {
   candidatesByRoleAndYearMessages,
   topVotingStateMessages,
+  electionWinnerMessages,
   candidateVotesMessages,
   mostVotedInYearByStateMessages
 } = require('../answers/dynamic')
 const {
   findTopVotingState,
+  findElectionWinner,
   findMostVotedInYearByState,
   findCandidatesByRoleAndYear,
   findCandidateVotesInAYearByNameAndState
@@ -34,4 +36,10 @@ exports.mostVotedInYearByState = async (year, state) => {
   const queryResult = await query(findMostVotedInYearByState, { year, state })
   const result = queryResult.data.mostVotedInYearByState
   return mostVotedInYearByStateMessages(result, year, state)
+}
+
+exports.electionWinner = async (year) => {
+  const queryResult = await query(findElectionWinner, { year })
+  const winner = queryResult.data.electionWinner
+  return electionWinnerMessages(winner)
 }
