@@ -1,5 +1,5 @@
 const plnParser = require('./wit')
-const { greetings, random, invalidQuestion, farewells } = require('./answers/static')
+const { greetings, random, invalidQuestion, farewells, errorMessages } = require('./answers/static')
 const {
   answerWithCandidatesVotesByYearAndState,
   answerWithCandidatesByRoleAndYear,
@@ -8,16 +8,28 @@ const {
   topVotingState
 } = require('./services/election')
 
-const extractPost = post => post[0].value
+const INVALID_RANGE = 'Invalid date'
+const INVALID_ENTITY = 'Invalid Entity'
+
 const extractState = brState => brState[0].value
-const extractYear = date => new Date(date[0].value).getFullYear()
 const extractCandidateName = president => president[0].value
+const extractPost = post => {
+  if (!post) {
+    return 'PRESIDENTE'
+  }
 
-exports.answer = async (message) => {
-  const parsedMessage = await plnParser.message(message, {})
+  return post[0].value || 'PRESIDENTE'
+}
+const extractYear = datetime => {
+  const year = new Date(datetime[0].value).getFullYear()
+  if (year < 1998 || year > 2017) {
+    throw (new Error(INVALID_RANGE))
+  }
 
-  const entities = parsedMessage.entities
+  return year
+}
 
+const answerBasedOnEntities = entities => {
   if (entities.hasOwnProperty('candidatesByRoleAndYear')) {
     const { datetime, post } = entities
     return answerWithCandidatesByRoleAndYear(
@@ -66,5 +78,25 @@ exports.answer = async (message) => {
     return random(farewells)
   }
 
-  return random(invalidQuestion)
+  throw (new Error(INVALID_ENTITY))
+}
+
+exports.answer = async (message) => {
+  const parsedMessage = await plnParser.message(message, {})
+
+  const entities = parsedMessage.entities
+
+  try {
+    return answerBasedOnEntities(entities)
+  } catch ({message}) {
+    if (message === INVALID_RANGE) {
+      return 'Nao temos dados anteriores a 1998, poderia usar outra data como referencia?'
+    }
+
+    if (message === INVALID_ENTITY) {
+      return random(invalidQuestion)
+    }
+
+    return random(errorMessages)
+  }
 }
