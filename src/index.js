@@ -8,7 +8,7 @@ const {
   topVotingState
 } = require('./services/election')
 
-const extractPost = post => post[0].value
+const extractPost = post => post[0].value || 'PRESIDENTE'
 const extractState = brState => brState[0].value
 const extractYear = date => new Date(date[0].value).getFullYear()
 const extractCandidateName = president => president[0].value
