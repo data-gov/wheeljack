@@ -15,8 +15,8 @@
     "commitizen": "git cz",
     "hubot": "eval $(./dotenv.sh) && hubot --name 'wheeljack'",
     "hubot:gitter": "PORT=8081 npm run hubot -- --adapter gitter",
-    "hubot:fb": "npm run hubot -- --adapter fb",
-    "hubot:telegram": "npm run hubot -- --adapter telegram",
+    "hubot:fb": "PORT=8082 npm run hubot -- --adapter fb",
+    "hubot:telegram": "PORT=8083 npm run hubot -- --adapter telegram",
     "precommit": "npm run lint:check",
     "prepush": "npm test"
   },
