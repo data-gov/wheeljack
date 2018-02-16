@@ -26,29 +26,34 @@
 // Author:
 //   data-gov
 
-const { errorMessages, random } = require('../answers/static')
-const { answer } = require('../')
-const ANYTHING = /.*/i
+const { errorMessages, random } = require('../answers/static');
+const { answer } = require('../');
+const ANYTHING = /.*/i;
 
-function loggerMiddleware (robot) {
+function loggerMiddleware(robot) {
+  // eslint-disable-next-line no-unused-vars
   return (context, next, _) => {
-    robot.logger.info(`${context.response.message.user.name} asked me to ${context.response.message.text}`)
-    next()
-  }
+    robot.logger.info(
+      `${context.response.message.user.name} asked me to ${
+        context.response.message.text
+      }`,
+    );
+    next();
+  };
 }
 
-async function parseMessage (res) {
-  const userMessage = res.match.input
+async function parseMessage(res) {
+  const userMessage = res.match.input;
   try {
-    const response = await answer(userMessage)
-    res.send(response)
+    const response = await answer(userMessage);
+    res.send(response);
   } catch (error) {
-    console.error(error)
-    res.send(random(errorMessages))
+    console.error(error);
+    res.send(random(errorMessages));
   }
 }
 
 module.exports = robot => {
-  robot.listenerMiddleware(loggerMiddleware(robot))
-  robot.hear(ANYTHING, parseMessage)
-}
+  robot.listenerMiddleware(loggerMiddleware(robot));
+  robot.hear(ANYTHING, parseMessage);
+};

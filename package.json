@@ -17,6 +17,7 @@
     "hubot:gitter": "PORT=8081 npm run hubot -- --adapter gitter",
     "hubot:fb": "npm run hubot -- --adapter fb",
     "hubot:telegram": "PORT=8082 npm run hubot -- --adapter telegram",
+    "prettier": "prettier --write 'src/**/*.js'",
     "precommit": "npm run lint:check",
     "prepush": "npm test"
   },
@@ -35,22 +36,22 @@
     "node-wit": "^4.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
-    "eslint-config-standard": "^10.2.1",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-flowtype": "^2.35.1",
     "eslint-plugin-graphql": "^1.4.0-1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "jest": "^21.1.0"
+    "jest": "^21.1.0",
+    "prettier": "^1.10.2"
   },
   "optionalDependencies": {
     "fsevents": "1.1.2"
   },
   "engines": {
-    "node": "8.9.0",
+    "node": "8.9.1",
     "npm": "5.5.1"
   }
 }

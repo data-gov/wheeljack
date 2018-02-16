@@ -1,13 +1,19 @@
 {
+  "parser": "babel-eslint",
   "env": {
     "node": true,
     "es6": true,
     "commonjs": true,
     "jest": true
   },
-  "rules": {
-    "semi": [2, "never"]
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
-  "extends": "standard",
-  "plugins": [ "flowtype", "graphql" ]
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "off"
+  },
+  "plugins": ["prettier", "flowtype", "graphql", "promise", "node"],
+  "extends": ["plugin:prettier/recommended", "eslint:recommended", "plugin:node/recommended"]
 }

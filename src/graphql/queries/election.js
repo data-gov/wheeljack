@@ -1,14 +1,18 @@
-const gql = require('graphql-tag')
+const gql = require('graphql-tag');
 
 exports.findCandidatesByRoleAndYear = gql`
-  query($role: String!, $year: Int! ) {
+  query($role: String!, $year: Int!) {
     candidatesByRoleAndYear(role: $role, year: $year)
   }
-`
+`;
 
 exports.findCandidateVotesInAYearByNameAndState = gql`
   query($name: String!, $state: String!, $year: Int!) {
-    findCandidateVotesInAYearByNameAndState(name: $name, state: $state, year: $year) {
+    findCandidateVotesInAYearByNameAndState(
+      name: $name
+      state: $state
+      year: $year
+    ) {
       votes {
         first
         second
@@ -16,11 +20,11 @@ exports.findCandidateVotesInAYearByNameAndState = gql`
       }
     }
   }
-`
+`;
 
 exports.findMostVotedInYearByState = gql`
-  query ($state: String!, $year: Int!, $shift: Int) {
-    mostVotedInYearByState (state: $state, year: $year, shift: $shift){
+  query($state: String!, $year: Int!, $shift: Int) {
+    mostVotedInYearByState(state: $state, year: $year, shift: $shift) {
       name
       year
       state
@@ -31,11 +35,11 @@ exports.findMostVotedInYearByState = gql`
       }
     }
   }
-`
+`;
 
 exports.findTopVotingState = gql`
-  query ($name: String!, $year: Int!, $shift: Int) {
-    topVotingState(name: $name, year: $year, shift: $shift){
+  query($name: String!, $year: Int!, $shift: Int) {
+    topVotingState(name: $name, year: $year, shift: $shift) {
       name
       year
       state
@@ -46,5 +50,9 @@ exports.findTopVotingState = gql`
       }
     }
   }
-`
-exports.findElectionWinner = gql`query ($year: Int!) { electionWinner(year: $year) }`
+`;
+exports.findElectionWinner = gql`
+  query($year: Int!) {
+    electionWinner(year: $year)
+  }
+`;
