@@ -64,4 +64,4 @@ dist/
 .hubot_history
 
 # DONT USE YARN :D
-.yarn.lock
+yarn.lock
