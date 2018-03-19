@@ -33,3 +33,20 @@ TELEGRAM_TOKEN='<TOKEN>'
 
 ## Configurando seu próprio bot
 Se quiser configurar seu próprio bot e não tiver as variáveis acima, siga [este guia para usar no facebook](https://github.com/chen-ye/hubot-fb/blob/master/INSTALL.md), e/ou [este guia para usar no gitter](https://github.com/kcjpop/hubot-gitter), e/ou [este guia para usar no telegram](https://github.com/lukefx/hubot-telegram).
+
+## Perguntas que o Wheeljack responde
+
+### Saudações
+  1. Oi
+  2. Olá
+  3. Tudo bom
+  4. Tchau
+  5. Bye
+
+### Questões sobre eleições presidenciais
+  1. Quais foram os candidatos a presidencia no ano de <ANO DA ELEIÇÃO> ?
+  2. Quem foi o candidato presidencial mais votado no <ESTADO> em <ANO DA ELEIÇÃO>?
+  3. Qual foi o estado que mais votou no <CANDIDATO> em <ANO DA ELEIÇÃO>?
+  4. Quem venceu as eleições presidenciais em <ANO DA ELEIÇAO> ?
+  5. Quantos votos o <CANDIDATO> teve no <ESTADO> no ano de <ANO DA ELEIÇÃO>?
+
